@@ -1,6 +1,6 @@
-#### CS 110 - Spring 2018
-# Lab 3 - Turtle Racing Lab
-## Due Date: 5:00 p.m., February 8th, 2018
+## CS 110 - Fall 2018
+# Lab 4 - Graphing with Functions
+## Due Date: 5:00 p.m., September 20th, 2018
 
 *All programs will be tested on the machines in the LNG103 lab. If your code does not run on the system in this lab, it is considered non-functioning EVEN IF IT RUNS ON YOUR PERSONAL COMPUTER. Always check that your code runs on the lab machines before submitting.*
 
@@ -10,18 +10,19 @@
 
 ### Grading Rubric
 
-**_TOTAL: 15 points_**
-* **Part A: 7 points**
-   * Creates a function for drawing the sine function and calls the function from main (3 points)
-   * Draw sine function using a loop (4 points)
-* **Part B: 7 points**
-   * Setup window function set world coordinates to requested values (2 points)
+**_TOTAL: 17 points_**
+* **Part A: 5 points**
+   * Creates a function for drawing the sine function and calls the function from main (2 points)
+   * Draw sine wave using a loop inside your sine function (3 points)
+* **Part B: 11 points**
+   * Setup window function sets world coordinates to requested values (2 points)
    * Setup turtle function draws the x and y axis with the origin at the center (2 points)
    * Draws from -360 to 360 on the x axis (1 point)
-   * Draw cosine function (2 points)
+   * Draw cosine using a function (2 points)
+   * Draw tangent using a function (2 points)
+   * Draw natural log plot using a function (2 points)
 * **Part C: 1 point**
     * Follows requested project structure and submission format
-    * Follows [formatting guidelines](https://docs.google.com/document/d/1RU9bHsJhc4wecOXelXF5uUjcNTce4f2I0-09kJKvRvk/edit?usp=sharing)
 
 ### Guidelines
 
@@ -57,11 +58,11 @@ For this lab, we will use the math library to generate the values that we need. 
 ```python
 import math
 def main():
-	y = math.sin(math.radians(90))
+    y = math.sin(math.radians(90))
     print(y)
 main()
 ```
-As you can see, the `sin` function from the math library takes a single parameter. This parameter must be a value in “radians” (you may remember this from trigonometry class). Since most of us are used to stating the size of an angle in “degrees”, the math module provides a function, `radians` that will convert from degrees to radians for us.
+As you can see, the `sin` function from the math library takes a single parameter. This parameter must be a value in _radians_ (you may remember this from trigonometry class). Since most of us are used to stating the size of an angle in “degrees”, the math module provides a function, `radians` that will convert from degrees to radians for us.
 Now try it for some other boundary values, like 270 or 360.
 
 ### Making the Plot
@@ -87,7 +88,7 @@ Let’s try the `goto` method. Experiment with the method to make sure you under
 
 Now we can put the two previous programs together to complete our plot. Write a complete program that does the following:
 * Create and set up the turtle and the screen.
-* Write a function that uses a loop to draw a sine curve by iterating the angle from 0 to 360.
+* Write a function that uses a loop to draw a sine curve by iterating the angle from -360 to 360.
     * Generate the sine value for each angle.
     * Move the turtle to that position (leave a line behind).
 * Call your function from your main()
@@ -109,26 +110,33 @@ Now can you see the problem? The value of sin always stays between -1 and 1. Thi
     * You must draw the curve from -360 degrees all the way back to 360 degrees (inclusive)
     * The `math.sin()` function only takes degrees in radians
         * It may be useful to place a print() debug statement after determining x and y so that you can see if their values are reasonable
-        * Question:  What is 360 degrees in radians?
     * In order to scale the window properly (setworldcoordinates()) you need to determine the lowest and highest x values as well as the lowest and highest y values
-* Improve upon the solution in the textbook by using functions:
-    * In the main() method, create the Screen and the Turtle, and invoke functions to set up the window, set up the Turtle, and draw the sine curve
+* In the main() method, create the Screen and the Turtle, and invoke functions to set up the window, set up the Turtle, and draw the sine curve
     * Create the following functions:
-        * `setUpWindow(screenObject)`
+        * `setUpWindow(screen_object)`
             * to set coordinates and background color
-        * `setUpTurtle(turtleObject)`
+        * `setUpTurtle(turtle_object)`
             * to draw the x and y axis with the origin (0, 0) at the center of the screen and place a turtle object in the correct place to start drawing curve
+        * `drawSine(turtle_object)`
     * :warning: Make sure the type of the argument sent to each function matches the type and order of the function parameter(s)
 
 __Now try this...__
 
-Now that you can plot a sine function, how about trying a different function, such as cosine? Create an additional function called `drawCosineCurve()`.
+Now that you can plot a sine function, how about trying a few different functions, such as cosine? Create an the following additional functions:
 
-Make sure you test both curve functions in your driver (main function).
+* `drawCosineCurve()`
+    * draws a cosine curve on the same graph
+* `drawTangentCurve()`
+    * draws a tangent curve on the same graph
+* `drawNaturalLog()`
+    * draws a natural log plot on the same graph
+    * :warning: You will have to adjust your starting value or you will get an error
+
+Make sure you test all functions in your driver (main function).
 
 ## Part C : Code Organization and Submission
 * Required code organization:
-   * lab3.py
+   * lab4.py
 
 Below is just a reminder of the commands you should use to submit your code. If you cannot remember the exact process, please review Lab 1.
 
